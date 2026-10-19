@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]]
+modId="jerrymod"
+version="${file.jarVersion}"
+displayName="Jerry Mod"
+credits="Jerry Mod Team"
+authors="Your Name"
+description="A simple Minecraft mod for 1.20.1 Forge."
+
+[[dependencies.jerrymod]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.jerrymod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"

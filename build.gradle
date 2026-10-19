@@ -1,0 +1,48 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.0'
+}
+
+group = 'com.example'
+version = '1.0'
+archivesBaseName = 'jerrymod'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'forge'
+        url = 'https://files.minecraftforge.net/maven'
+    }
+}
+
+ext.dependsOn clean
+
+forge {
+    version = project.minecraft_version
+    runs {
+        client {
+            property 'forge.logging.markers', 'REGISTRIES'
+        }
+        server {
+            property 'forge.logging.markers', 'REGISTRIES'
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft_version
+}
+
+jar {
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
